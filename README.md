@@ -1,3 +1,13 @@
+- Created in 2012
+- Python-like syntax and C++ performance
+- Designed for backend and server development
+- Go is a compiled language
+
+// uint8 / byte (1 byte is 8 bits) (0 - 255)
+// uint16 (0 - 65535)
+// uint32 (0 - ...)
+// uint64 (0 - ...)
+
 ### Assignment Expression & Implicit vs Explicit
 
 ```
@@ -53,3 +63,27 @@ Width & Precision
 - 
 - 
 
+### When to use pointers?
+
+1) When you need to update the state;
+pointer => 8 bytes
+2) When we want to optimize the memory for large objects that are getting called a lot;
+
+A pointer example:
+
+```
+type User struct {
+    email   string
+    username string
+    age     int
+    file []byte 
+}
+
+func (u User) Email() string {
+    return u.email
+}
+
+func (u *User) UpdateEmail(email string) {
+    u.email = email
+}
+```
